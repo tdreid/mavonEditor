@@ -23,8 +23,8 @@ var config = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         // publicPath: '/dist/',
-        filename: 'js/[name].[chunkhash:8].js',
-        chunkFilename: 'js/[name].[chunkhash:8].js'
+        filename: 'js/[name].js',
+        chunkFilename: 'js/[name].js'
     },
     resolve: {
         alias: {
@@ -46,11 +46,6 @@ var config = {
 
 var res = merge([base, config]);
 res.plugins = [
-    new webpack.optimize.CommonsChunkPlugin({
-        names: ['vue', 'common'],
-        filename: 'js/[name].[chunkhash:8].js',
-        minChunks: Infinity
-    }),
     new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'src/dev/index.html',
